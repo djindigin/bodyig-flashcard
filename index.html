@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>藏语词汇记忆 - 做客（1）多音频序列版</title>
+    <title>藏语闪卡 - FSRS 智能复习版（三按键精简版）</title>
     <style>
         :root {
-            --primary: #58cc02;
-            --primary-dark: #46a302;
+            --primary: #22c55e;
+            --primary-dark: #15803d;
             --secondary: #1cb0f6;
-            --accent: #ffc800;
-            --danger: #ff4b4b;
-            --warning: #ff9600;
+            --accent: #eab308;
+            --danger: #ef4444;
+            --warning: #f59e0b;
             --bg: #f7f7f7;
             --card-bg: #ffffff;
             --text-main: #3c3c3c;
@@ -19,508 +19,356 @@
             --border: #e5e5e5;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 单词书切换条 */
-        .book-switcher-bar {
-            max-width: 600px;
-            width: 100%;
-            margin: 12px auto 0;
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .book-select {
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 2px solid var(--border);
-            background: white;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .book-select:focus {
-            border-color: var(--secondary);
-        }
-
-        /* 顶部导航与状态栏 (Duolingo Style) */
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 12px 16px;
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 600px; width: 100%; margin: 12px auto; padding: 0 16px;
         }
+        .stats-hud { font-size: 0.85rem; color: var(--text-muted); background: #eee; padding: 4px 10px; border-radius: 999px; }
 
-        .streak {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--warning);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
+        .progress-container { flex: 1; margin: 0 12px; background: #e5e5e5; height: 12px; border-radius: 999px; overflow: hidden; }
+        .progress-bar { background: var(--primary); height: 100%; width: 0%; transition: width 0.3s ease; }
 
-        .progress-container {
-            flex: 1;
-            margin: 0 20px;
-            background: #e5e5e5;
-            height: 16px;
-            border-radius: 999px;
-            overflow: hidden;
-        }
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 500px; width: 100%; margin: 0 auto; padding: 0 16px 20px; }
 
-        .progress-bar {
-            background: var(--primary);
-            height: 100%;
-            width: 0%;
-            transition: width 0.3s ease;
-            border-radius: 999px;
-        }
-
-        .stats-badge {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* 主体容器 */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            max-width: 500px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 16px 20px;
-        }
-
-        /* 卡片容器 (Anki Style Flip) */
-        .flashcard-scene {
-            width: 100%;
-            height: 320px;
-            perspective: 1000px;
-            cursor: pointer;
-            margin-bottom: 24px;
-        }
-
-        .flashcard {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-            border-radius: 20px;
-            box-shadow: 0 6px 0 var(--border);
-        }
-
-        .flashcard.flipped {
-            transform: rotateY(180deg);
-        }
+        .flashcard-scene { width: 100%; height: 380px; perspective: 1000px; cursor: pointer; margin-bottom: 20px; }
+        .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1); border-radius: 20px; box-shadow: 0 6px 0 var(--border); }
+        .flashcard.flipped { transform: rotateY(180deg); }
 
         .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            border: 2px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: var(--card-bg); border: 2px solid var(--border); border-radius: 20px; padding: 24px; text-align: center;
+            overflow-y: auto;
         }
-
         .card-back {
             transform: rotateY(180deg);
             background: #f0f9ff;
             border-color: #bae6fd;
+            align-items: flex-start;
+            text-align: left;
+            position: relative;
+            padding: 20px 24px 38px 24px;
+            overflow-y: auto;
         }
 
-        .tibetan-text {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-            color: #1e293b;
-            word-break: break-all;
-        }
+        .tibetan-text { font-size: 2.4rem; font-weight: bold; margin-bottom: 12px; color: #1e293b; width: 100%; text-align: center; }
+        .audio-btn { background: var(--secondary); color: white; border: none; padding: 8px 18px; border-radius: 999px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 #0284c7; display: inline-flex; align-items: center; gap: 6px; width: auto; }
+        .audio-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #0284c7; }
+        .audio-btn:disabled { background: #cbd5e1; box-shadow: 0 4px 0 #94a3b8; cursor: not-allowed; }
 
-        .wylie-text {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            font-style: italic;
-        }
+        .back-top-row { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .back-field-group { width: 100%; margin-bottom: 8px; }
+        .field-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; }
+        .field-val.trans-large { font-size: 1.3rem; color: var(--primary-dark); font-weight: bold; }
+        .pos-badge { display: inline-block; font-size: 0.75rem; color: var(--warning); background: #fff3db; padding: 2px 8px; border-radius: 6px; font-weight: 600; }
+        .tone-badge { display: inline-block; font-size: 0.85rem; color: #0284c7; background: #e0f2fe; padding: 2px 8px; border-radius: 999px; }
 
-        .translation-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #0f172a;
-            margin-bottom: 12px;
-        }
+        /* 熟练度样式：灰、红、黄、绿圆点 */
+        .dots-group { display: inline-flex; gap: 3px; align-items: center; }
+        .dots-group span { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .grey-dots span { background-color: #cbd5e1; }
+        .red-dots span  { background-color: #ef4444; }
+        .yellow-dots span{ background-color: #eab308; }
+        .green-dots span { background-color: #22c55e; }
 
-        .phonetic-note {
-            font-size: 0.95rem;
-            color: #0284c7;
-            background: #e0f2fe;
-            padding: 4px 12px;
-            border-radius: 999px;
-        }
+        .flip-hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #94a3b8; pointer-events: none; }
 
-        .pos-badge {
-            font-size: 0.8rem;
-            color: var(--warning);
-            background: #fff3db;
-            padding: 2px 8px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
+        /* 三按键打分面板（红、黄、绿） */
+        .rating-panel { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+        .rate-btn { border: none; padding: 10px 4px; border-radius: 12px; font-weight: bold; color: white; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,0.15); font-size: 0.85rem; text-align: center; }
+        .rate-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.15); }
+        .rate-dont  { background: #ef4444; box-shadow: 0 4px 0 #b91c1c; }
+        .rate-vague { background: #eab308; box-shadow: 0 4px 0 #a16207; color: #fff; }
+        .rate-know  { background: #22c55e; box-shadow: 0 4px 0 #15803d; }
 
-        .audio-btn {
-            margin-top: 16px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-weight: bold;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 0 #0284c7;
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
+        .toolbar { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted); gap: 8px; }
+        .mode-toggle { background: white; border: 2px solid var(--border); padding: 4px 10px; border-radius: 999px; cursor: pointer; font-weight: 600; color: var(--text-main); white-space: nowrap; }
 
-        .audio-btn:disabled {
-            background: #cbd5e1;
-            box-shadow: 0 4px 0 #94a3b8;
-            cursor: not-allowed;
-        }
-
-        .audio-btn:active:not(:disabled) {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #0284c7;
-        }
-
-        .flip-hint {
-            position: absolute;
-            bottom: 16px;
-            font-size: 0.8rem;
-            color: #94a3b8;
-        }
-
-        /* Anki 评分按钮组 */
-        .rating-panel {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            display: none;
-        }
-
-        .rating-panel.visible {
-            display: grid;
-        }
-
-        .rate-btn {
-            border: none;
-            padding: 12px 6px;
-            border-radius: 12px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 4px 0 rgba(0,0,0,0.15);
-            transition: transform 0.1s, box-shadow 0.1s;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .rate-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 rgba(0,0,0,0.15);
-        }
-
-        .rate-again { background: var(--danger); box-shadow: 0 4px 0 #cc2929; }
-        .rate-hard  { background: var(--warning); box-shadow: 0 4px 0 #cc7a00; }
-        .rate-good  { background: var(--secondary); box-shadow: 0 4px 0 #0284c7; }
-        .rate-easy  { background: var(--primary); box-shadow: 0 4px 0 var(--primary-dark); }
-
-        .initial-action {
-            width: 100%;
-        }
-
-        .show-answer-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 16px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 0 var(--primary-dark);
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .show-answer-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 var(--primary-dark);
-        }
-
-        .completed-screen {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-            width: 100%;
-        }
-
-        .completed-screen h2 {
-            margin-bottom: 16px;
-            color: var(--primary-dark);
-        }
-
-        .restart-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 4px 0 var(--primary-dark);
-        }
+        /* 模态框样式 */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: white; width: 100%; max-width: 580px; max-height: 85vh; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.1rem; }
+        .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+        .modal-body { padding: 20px; overflow-y: auto; flex: 1; }
+        .word-list-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+        .chart-container { margin-bottom: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
     </style>
 </head>
 <body>
 
-    <!-- 单词书切换区 -->
-    <div class="book-switcher-bar">
-        <label for="bookSelector" style="font-weight:600; color:var(--text-muted); font-size:0.9rem;">当前单词书:</label>
-        <select id="bookSelector" class="book-select" onchange="switchBook(this.value)">
-            <option value="basic">初中级藏语词汇大全（含无音频容错）</option>
-            <option value="intermediate" selected>中级课文词汇：做客（1）（28词 多音频序列）</option>
-        </select>
-    </div>
-
     <header>
-        <div class="streak">🔥 <span id="streakCount">5</span></div>
+        <div class="stats-hud" id="statsHud">稳定度: 0.5d | 复习: 0次</div>
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
         </div>
-        <div class="stats-badge"><span id="currentIndex">1</span>/<span id="totalCount">0</span></div>
+        <div class="stats-hud"><span id="currentIndex">1</span>/<span id="totalCount">0</span></div>
     </header>
 
-    <main id="appMain">
-        <div class="flashcard-scene" id="cardScene" onclick="flipCard()">
+    <main>
+        <div class="toolbar">
+            <span>当前词书: <strong id="bookTitle">--</strong></span>
+            <div style="display:flex; gap:6px;">
+                <button class="mode-toggle" id="shuffleToggle" onclick="toggleShuffleMode()">🔀 乱序: 开启</button>
+                <button class="mode-toggle" onclick="openStatsModal()">📊 统计</button>
+            </div>
+        </div>
+
+        <div class="flashcard-scene" onclick="toggleFlip()">
             <div class="flashcard" id="flashcard">
-                <!-- 正面：藏语 -->
+                <!-- 正面 -->
                 <div class="card-face card-front">
-                    <div id="frontPos" class="pos-badge" style="display:none;"></div>
                     <div class="tibetan-text" id="frontTibetan">--</div>
-                    <div class="wylie-text" id="frontWylie">--</div>
                     <button class="audio-btn" id="frontAudioBtn" onclick="event.stopPropagation(); playAudio();">🔊 发音</button>
-                    <div class="flip-hint">点击卡片或按空格翻面</div>
+                    <div class="flip-hint">点击卡片可正反反复翻转</div>
                 </div>
-                <!-- 背面：中文/注音 -->
-                <div class="card-face card-back">
-                    <div id="backPos" class="pos-badge" style="display:none;"></div>
-                    <div class="translation-text" id="backTranslation">--</div>
-                    <div class="wylie-text" id="backWylie">--</div>
-                    <div class="phonetic-note" id="backPhonetic">条目详情</div>
-                    <button class="audio-btn" id="backAudioBtn" onclick="event.stopPropagation(); playAudio();">🔊 再听一次</button>
+
+                <!-- 背面 -->
+                <div class="card-face card-back" id="backContainer">
+                    <div class="back-top-row">
+                        <div id="backPosWrapper"></div>
+                        <div id="backProficiencyWrapper"></div>
+                    </div>
+                    <div class="back-field-group">
+                        <div class="field-val trans-large" id="backMeaning">--</div>
+                    </div>
+                    <div class="back-field-group" id="backPronWrapper" style="display:none;">
+                        <div class="field-label">五度标记法音调</div>
+                        <div class="tone-badge" id="backPronunciation"></div>
+                    </div>
+                    <div class="back-field-group" id="backWylieWrapper" style="display:none;">
+                        <div class="field-label">威利转写 (Wylie)</div>
+                        <div class="field-val" id="backWylie" style="font-family: monospace; font-size: 0.95rem; color: #475569;">--</div>
+                    </div>
+                    <div class="back-field-group" id="backExampleWrapper" style="display:none;">
+                        <div class="field-label">例句</div>
+                        <div class="field-val" id="backExample" style="font-size: 0.95rem; line-height: 1.4; color: #1e293b;"></div>
+                    </div>
+                    <div style="margin-top: 6px;">
+                        <button class="audio-btn" id="backAudioBtn" onclick="event.stopPropagation(); playAudio();">🔊 听发音</button>
+                    </div>
+                    <div class="flip-hint">点击翻回正面检查</div>
                 </div>
             </div>
         </div>
 
-        <div class="initial-action" id="actionShow">
-            <button class="show-answer-btn" onclick="flipCard()">显示答案 (Space)</button>
-        </div>
-
+        <!-- FSRS 三按键打分面板：不认识（红）、模糊（黄）、认识（绿） -->
         <div class="rating-panel" id="ratingPanel">
-            <button class="rate-btn rate-again" onclick="rateCard('again')">重来<br><small>&lt;1m</small></button>
-            <button class="rate-btn rate-hard" onclick="rateCard('hard')">困难<br><small>&lt;6m</small></button>
-            <button class="rate-btn rate-good" onclick="rateCard('good')">良好<br><small>&lt;10m</small></button>
-            <button class="rate-btn rate-easy" onclick="rateCard('easy')">简单<br><small>4d</small></button>
+            <button class="rate-btn rate-dont" onclick="rateCard(1)">不认识<br></button>
+            <button class="rate-btn rate-vague" onclick="rateCard(2)">模糊<br></button>
+            <button class="rate-btn rate-know" onclick="rateCard(3)">认识<br></button>
         </div>
     </main>
 
-    <div class="completed-screen" id="completedScreen">
-        <h2>🎉 太棒了！本轮复习完成</h2>
-        <p>你已过完当前单词书所有卡片。</p>
-        <button class="restart-btn" onclick="restartSession()">重新复习本单词书</button>
+    <!-- 统计模态框 -->
+    <div class="modal-overlay" id="statsModal" onclick="if(event.target===this) closeStatsModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>此次会话学习统计与熟练度总览</span>
+                <button class="modal-close" onclick="closeStatsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-container">
+                    <div class="field-label" style="margin-bottom: 8px;">此次学习频次分布（按三档评分）</div>
+                    <div id="sessionChartArea" style="width:100%; height:120px;"></div>
+                </div>
+                <div class="field-label" style="margin-bottom: 8px;">全部单词熟练度状态（未学习/无记录为灰圆）</div>
+                <div id="wordStatsList"></div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // 定义双单词书结构
-        const wordbooks = {
-            basic: {
-                name: "初中级藏语词汇大全",
-                cards: [
-                    { id: "008", tibetan: "བཀྲ་ཤིས་བདེ་ལེགས", wylie: "bkra shis bde legs", meaning: "扎西德勒 / 吉祥如意", phonetic: "扎西德勒", pos: "" },
-                    { id: "009", tibetan: "ཐུགས་རྗེ་ཆེ", wylie: "thugs rje che", meaning: "谢谢", phonetic: "图杰切", pos: "" },
-                    { id: null, tibetan: "སྤྲིན་པ", wylie: "sprin pa", meaning: "云彩（无独立音频）", phonetic: "无音频示例", pos: "" }
-                ]
-            },
-            intermediate: {
-                name: "中级课文词汇：做客（1）",
-                cards: [
-                    { id: "001", tibetan: "མགྲོན་པོ", wylie: "mgron po", meaning: "客人", phonetic: "音频: 001", pos: "" },
-                    { id: "004", tibetan: "སྐུ་མགྲོན", wylie: "sku mgron", meaning: "客人尊称", phonetic: "音频: 004", pos: "" },
-                    { id: "007", tibetan: "གྱང", wylie: "gyang", meaning: "墙", phonetic: "音频: 007", pos: "" },
-                    { id: "010", tibetan: "ཡི་གེ", wylie: "yi ge", meaning: "信件", phonetic: "音频: 010", pos: "" },
-                    { id: "013", tibetan: "སྤུན་ཟླ", wylie: "spun zla", meaning: "亲戚", phonetic: "音频: 013", pos: "" },
-                    { id: "016", tibetan: "རྐུན་མ", wylie: "rkun ma", meaning: "小偷", phonetic: "音频: 016", pos: "" },
-                    { id: "019", tibetan: "ཁང་མིག", wylie: "khang mig", meaning: "房间", phonetic: "音频: 019", pos: "" },
-                    { id: "022", tibetan: "འགྲམ་ལྕག་གཞུག", wylie: "'gram lcag gzhug", meaning: "扇巴掌", phonetic: "音频: 022", pos: "v." },
-                    { id: "025, 026, 027", tibetan: "གཞུ། གཞུས། གཞུ།", wylie: "gzhu / gzhyus / gzhu", meaning: "击打；投掷", phonetic: "音频: 025, 026, 027", pos: "v." },
-                    { id: "030", tibetan: "མགྲོན་ཁང", wylie: "mgron khang", meaning: "旅馆", phonetic: "音频: 030", pos: "" },
-                    { id: "033", tibetan: "གནམ་གྲུ་ཐང", wylie: "gnam gru thang", meaning: "机场", phonetic: "音频: 033", pos: "" },
-                    { id: "036", tibetan: "སྒོ་ར", wylie: "sgo ra", meaning: "院子", phonetic: "音频: 036", pos: "" },
-                    { id: "039", tibetan: "བྲེལ་བ་ཆེན་པོ", wylie: "brel ba chen po", meaning: "忙碌的", phonetic: "音频: 039", pos: "" },
-                    { id: "042", tibetan: "དངོས་གནས", wylie: "dngos gnas", meaning: "真的", phonetic: "音频: 042", pos: "" },
-                    { id: "045", tibetan: "ཐུབ", wylie: "thub", meaning: "能够", phonetic: "音频: 045", pos: "v." },
-                    { id: "048, 049, 050", tibetan: "དབྱུག དབྱུགས། དབྱུག", wylie: "dbyug / dbyugs / dbyug", meaning: "扔", phonetic: "音频: 048, 049, 050", pos: "v." },
-                    { id: "052", tibetan: "སྐད་གྲགས་ཆེན་པོ", wylie: "skad grags chen po", meaning: "有名的", phonetic: "音频: 052", pos: "" },
-                    { id: "055", tibetan: "སྐད་གྲགས", wylie: "skad grags", meaning: "名气", phonetic: "音频: 055", pos: "" },
-                    { id: "058", tibetan: "ཁག", wylie: "khag", meaning: "罪过", phonetic: "音频: 058", pos: "" },
-                    { id: "061", tibetan: "མྱོང", wylie: "myong", meaning: "… 过", phonetic: "音频: 061", pos: "adv." },
-                    { id: "064", tibetan: "དེ་ནས", wylie: "de nas", meaning: "之后，此后", phonetic: "音频: 064", pos: "" },
-                    { id: "068", tibetan: "ཁང་པ་རྒྱག", wylie: "khang pa rgyag", meaning: "盖房子", phonetic: "音频: 068", pos: "v." },
-                    { id: "071", tibetan: "ཤྭེག", wylie: "shweg", meaning: "丢失", phonetic: "音频: 071", pos: "v." },
-                    { id: "074, 075, 076", tibetan: "རྐུ། བརྐུས། རྐུ", wylie: "rku / brkus / rku", meaning: "偷窃", phonetic: "音频: 074, 075, 076", pos: "v." },
-                    { id: "078", tibetan: "བཞེངས", wylie: "bzhengs", meaning: "建造（H）", phonetic: "音频: 078", pos: "v." },
-                    { id: "081, 082, 083", tibetan: "སྡུད། བསྡུས། སྡུད", wylie: "sdud / bsdus / sdud", meaning: "聚；招收", phonetic: "音频: 081, 082, 083", pos: "v." },
-                    { id: "086", tibetan: "ཟད་དེ", wylie: "zad de", meaning: "完全", phonetic: "音频: 086", pos: "adv." },
-                    { id: "089", tibetan: "གསང་སྤྱོད", wylie: "gsang spyod", meaning: "厕所", phonetic: "音频: 089", pos: "" }
-                ]
-            }
-        };
-
-        let currentBookKey = 'intermediate';
-        let currentDeck = wordbooks[currentBookKey].cards;
+        let currentBook = null;
+        let queue = [];
         let currentIndex = 0;
         let isFlipped = false;
+        let shuffleMode = true;
         let currentAudio = null;
+        let fsrsData = {};
+        
+        let sessionReviews = [];
+        let sessionStartTime = Date.now();
 
-        function initApp() {
-            switchBook('intermediate');
+        function getFSRSState(key) {
+            if (!fsrsData[key]) {
+                fsrsData[key] = { stability: 0.5, difficulty: 5.0, due: 0, reps: 0, lastGrade: 0 };
+            }
+            return fsrsData[key];
         }
 
-        function switchBook(bookKey) {
-            stopAudio();
-            currentBookKey = bookKey;
-            currentDeck = wordbooks[bookKey].cards;
-            currentIndex = 0;
-            
-            const selectEl = document.getElementById('bookSelector');
-            if (selectEl.value !== bookKey) {
-                selectEl.value = bookKey;
+        // 熟练度展示：未学/无记录=灰圆点；1(不认识)=红点；2(模糊)=黄点；3(认识)=绿点
+        function getProficiencyDotsHtml(key) {
+            const st = fsrsData[key];
+            if (!st || st.reps === 0 || !st.lastGrade) {
+                return '<span class="dots-group grey-dots" title="未学习/无记录"><span></span><span></span><span></span></span>';
             }
+            if (st.lastGrade === 1) {
+                return '<span class="dots-group red-dots" title="不认识(红)"><span></span><span></span><span></span></span>';
+            } else if (st.lastGrade === 2) {
+                return '<span class="dots-group yellow-dots" title="模糊(黄)"><span></span><span></span><span></span></span>';
+            } else {
+                return '<span class="dots-group green-dots" title="认识(绿)"><span></span><span></span><span></span></span>';
+            }
+        }
 
-            document.getElementById('totalCount').innerText = currentDeck.length;
-            document.getElementById('cardScene').style.display = 'block';
-            document.getElementById('completedScreen').style.display = 'none';
+        function updateFSRSState(key, grade) {
+            let state = getFSRSState(key);
+            let s = state.stability;
+            let d = state.difficulty;
+            if (state.reps === 0) {
+                s = Math.max(0.1, [0, 0.3, 1.0, 3.0][grade]);
+                d = [0, 8.0, 5.5, 3.0][grade];
+            } else {
+                d = Math.min(10, Math.max(1, d - 0.5 * (grade - 2)));
+                const mult = [0, 0.4, 1.2, 2.5][grade];
+                s = s * (1 + mult * Math.pow(d, -0.2));
+            }
+            const intervalDays = Math.max(0.001, s * 1.5);
+            state.stability = s;
+            state.difficulty = d;
+            state.reps++;
+            state.lastGrade = grade;
+            state.due = Date.now() + intervalDays * 24 * 3600 * 1000;
+            saveFSRSStorage();
+
+            const item = queue[currentIndex];
+            sessionReviews.push({
+                time: Date.now(),
+                elapsedSec: Math.floor((Date.now() - sessionStartTime) / 1000),
+                grade: grade,
+                tibetan: item ? item.tibetan : '',
+                meaning: item ? item.meaning : ''
+            });
+        }
+
+        function loadFSRSStorage() {
+            const saved = localStorage.getItem('fsrs_tibetan_data_3key');
+            if (saved) fsrsData = JSON.parse(saved);
+        }
+
+        function saveFSRSStorage() {
+            localStorage.setItem('fsrs_tibetan_data_3key', JSON.stringify(fsrsData));
+        }
+
+        async function initApp() {
+            loadFSRSStorage();
+            try {
+                const res = await fetch('words.json');
+                currentBook = await res.json();
+                document.getElementById('bookTitle').innerText = currentBook.name || '默认词书';
+                buildQueue();
+                loadCard(0);
+            } catch (e) {
+                console.error('加载 words.json 失败:', e);
+                document.getElementById('frontTibetan').innerText = '加载词书失败，请检查 words.json';
+            }
+        }
+
+        function buildQueue() {
+            if (!currentBook || !currentBook.cards) return;
+            let cards = [...currentBook.cards];
+            
+            if (shuffleMode) {
+                cards.sort((a, b) => {
+                    const sa = getFSRSState(a.id || a.tibetan).due;
+                    const sb = getFSRSState(b.id || b.tibetan).due;
+                    if (Math.abs(sa - sb) > 3600000) return sa - sb;
+                    return Math.random() - 0.5;
+                });
+            }
+            queue = cards;
+            currentIndex = 0;
+            updateStatsHUD();
+        }
+
+        function toggleShuffleMode() {
+            shuffleMode = !shuffleMode;
+            document.getElementById('shuffleToggle').innerText = `🔀 乱序: ${shuffleMode ? '开启' : '关闭'}`;
+            buildQueue();
             loadCard(0);
         }
 
-        function loadCard(index) {
+        function loadCard(idx) {
             stopAudio();
-            if (index >= currentDeck.length) {
-                showCompleted();
-                return;
+            if (idx >= queue.length) {
+                buildQueue();
+                idx = 0;
             }
-            currentIndex = index;
+            if (queue.length === 0) return;
+            currentIndex = idx;
             isFlipped = false;
             document.getElementById('flashcard').classList.remove('flipped');
-            document.getElementById('ratingPanel').classList.remove('visible');
-            document.getElementById('actionShow').style.display = 'block';
 
-            const item = currentDeck[currentIndex];
-            
-            // 词性展示逻辑
-            const fPos = document.getElementById('frontPos');
-            const bPos = document.getElementById('backPos');
-            if (item.pos) {
-                fPos.style.display = 'inline-block';
-                fPos.innerText = item.pos;
-                bPos.style.display = 'inline-block';
-                bPos.innerText = item.pos;
+            const item = queue[currentIndex];
+            const key = item.id || item.tibetan;
+
+            document.getElementById('frontTibetan').innerText = item.tibetan || '';
+            setAudioButtonState('frontAudioBtn', item.id);
+
+            const posWrap = document.getElementById('backPosWrapper');
+            if (item.pos && item.pos.trim()) {
+                posWrap.innerHTML = `<span class="pos-badge">${item.pos}</span>`;
             } else {
-                fPos.style.display = 'none';
-                bPos.style.display = 'none';
+                posWrap.innerHTML = '';
             }
 
-            document.getElementById('frontTibetan').innerText = item.tibetan;
-            document.getElementById('frontWylie').innerText = item.wylie || '-';
-            document.getElementById('backTranslation').innerText = item.meaning;
-            document.getElementById('backWylie').innerText = item.wylie || '-';
-            document.getElementById('backPhonetic').innerText = item.phonetic;
+            document.getElementById('backProficiencyWrapper').innerHTML = getProficiencyDotsHtml(key);
+            document.getElementById('backMeaning').innerText = item.meaning || '无释义';
 
-            updateAudioButtonState(item);
+            const pronWrap = document.getElementById('backPronWrapper');
+            if (item.pronunciation && item.pronunciation.trim()) {
+                pronWrap.style.display = 'block';
+                document.getElementById('backPronunciation').innerText = item.pronunciation;
+            } else {
+                pronWrap.style.display = 'none';
+            }
+
+            const wylieWrap = document.getElementById('backWylieWrapper');
+            if (item.wylie && item.wylie.trim()) {
+                wylieWrap.style.display = 'block';
+                document.getElementById('backWylie').innerText = item.wylie;
+            } else {
+                wylieWrap.style.display = 'none';
+            }
+
+            const exWrap = document.getElementById('backExampleWrapper');
+            if (item.example && item.example.trim()) {
+                exWrap.style.display = 'block';
+                document.getElementById('backExample').innerText = item.example;
+            } else {
+                exWrap.style.display = 'none';
+            }
+
+            setAudioButtonState('backAudioBtn', item.id);
             updateProgress();
-            
+            updateStatsHUD();
+
             if (item.id) {
                 playAudio();
             }
         }
 
-        function updateAudioButtonState(item) {
-            const fBtn = document.getElementById('frontAudioBtn');
-            const bBtn = document.getElementById('backAudioBtn');
-            if (item.id) {
-                fBtn.disabled = false;
-                fBtn.innerText = `🔊 发音 (${item.id})`;
-                bBtn.disabled = false;
-                bBtn.innerText = `🔊 再听一次 (${item.id})`;
+        function setAudioButtonState(btnId, audioId) {
+            const btn = document.getElementById(btnId);
+            if (audioId) {
+                btn.disabled = false;
+                btn.innerText = '🔊 听发音';
             } else {
-                fBtn.disabled = true;
-                fBtn.innerText = '🔇 无音频';
-                bBtn.disabled = true;
-                bBtn.innerText = '🔇 无音频';
+                btn.disabled = true;
+                btn.innerText = '🔇 无音频';
             }
         }
 
-        function flipCard() {
-            if (!isFlipped) {
-                isFlipped = true;
-                document.getElementById('flashcard').classList.add('flipped');
-                document.getElementById('ratingPanel').classList.add('visible');
-                document.getElementById('actionShow').style.display = 'none';
+        function toggleFlip() {
+            isFlipped = !isFlipped;
+            document.getElementById('flashcard').classList.toggle('flipped', isFlipped);
+            if (isFlipped && queue[currentIndex]) {
+                const key = queue[currentIndex].id || queue[currentIndex].tibetan;
+                document.getElementById('backProficiencyWrapper').innerHTML = getProficiencyDotsHtml(key);
             }
         }
 
@@ -533,64 +381,124 @@
         }
 
         function playAudio() {
-            const item = currentDeck[currentIndex];
+            const item = queue[currentIndex];
             if (!item || !item.id) return;
             stopAudio();
-
-            // 解析逗号分隔的多个音频序号，如 "025, 026, 027" -> ["025", "026", "027"]
-            const audioIds = item.id.split(',').map(s => s.trim()).filter(Boolean);
+            const audioIds = String(item.id).split(',').map(s => s.trim()).filter(Boolean);
             if (audioIds.length === 0) return;
 
-            let seqIdx = 0;
-
-            function playNextSeq() {
-                if (seqIdx >= audioIds.length) {
-                    currentAudio = null;
-                    return;
-                }
-                const audioPath = `clips/${audioIds[seqIdx]}.mp3`;
-                currentAudio = new Audio(audioPath);
-                
-                currentAudio.play().catch(e => {
-                    console.log(`音频文件 clips/${audioIds[seqIdx]}.mp3 未找到或被拦截`);
-                });
-
-                currentAudio.onended = () => {
-                    seqIdx++;
-                    playNextSeq();
-                };
+            let seq = 0;
+            function playNext() {
+                if (seq >= audioIds.length) { currentAudio = null; return; }
+                currentAudio = new Audio(`clips/${audioIds[seq]}.mp3`);
+                currentAudio.play().catch(() => {});
+                currentAudio.onended = () => { seq++; playNext(); };
             }
-
-            playNextSeq();
+            playNext();
         }
 
-        function rateCard(rating) {
+        function rateCard(grade) {
+            const item = queue[currentIndex];
+            if (item) {
+                const key = item.id || item.tibetan;
+                updateFSRSState(key, grade);
+            }
             loadCard(currentIndex + 1);
         }
 
         function updateProgress() {
-            document.getElementById('currentIndex').innerText = currentIndex + 1;
-            const pct = (currentIndex / currentDeck.length) * 100;
+            document.getElementById('currentIndex').innerText = queue.length > 0 ? currentIndex + 1 : 0;
+            document.getElementById('totalCount').innerText = queue.length;
+            const pct = queue.length > 0 ? ((currentIndex) / queue.length) * 100 : 0;
             document.getElementById('progressBar').style.width = `${pct}%`;
         }
 
-        function showCompleted() {
-            stopAudio();
-            document.getElementById('cardScene').style.display = 'none';
-            document.getElementById('actionShow').style.display = 'none';
-            document.getElementById('ratingPanel').style.display = 'none';
-            document.getElementById('completedScreen').style.display = 'flex';
-            document.getElementById('progressBar').style.width = '100%';
+        function updateStatsHUD() {
+            if (queue.length === 0) return;
+            const item = queue[currentIndex];
+            if (!item) return;
+            const key = item.id || item.tibetan;
+            const st = getFSRSState(key);
+            document.getElementById('statsHud').innerText = `稳定度S: ${st.stability.toFixed(1)}d | 复习: ${st.reps}次`;
         }
 
-        function restartSession() {
-            loadCard(0);
+        // 统计面板操作
+        function openStatsModal() {
+            document.getElementById('statsModal').classList.add('active');
+            renderSessionChart();
+            renderWordStatsList();
+        }
+
+        function closeStatsModal() {
+            document.getElementById('statsModal').classList.remove('active');
+        }
+
+        function renderSessionChart() {
+            const container = document.getElementById('sessionChartArea');
+            const total = sessionReviews.length;
+            if (total === 0) {
+                container.innerHTML = `<div style="text-align:center; color:#94a3b8; line-height:88px; font-size:0.85rem;">本次会话暂无答题记录，开始复习后自动生成统计图</div>`;
+                return;
+            }
+
+            const counts = { 1: 0, 2: 0, 3: 0 };
+            sessionReviews.forEach(r => { 
+                if (counts[r.grade] !== undefined) counts[r.grade]++; 
+            });
+
+            const maxCount = Math.max(1, counts, counts, counts[3]);
+            const bars = [
+                { grade: 1, label: '不认识', color: '#ef4444', count: counts[1] },
+                { grade: 2, label: '模糊', color: '#eab308', count: counts[2] },
+                { grade: 3, label: '认识', color: '#22c55e', count: counts[3] }
+            ];
+
+            let html = `<div style="display:flex; align-items:flex-end; justify-content:space-around; height:90px; gap:12px; padding-top:10px;">`;
+            bars.forEach(b => {
+                const heightPct = Math.max(10, (b.count / maxCount) * 75);
+                html += `
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+                        <span style="font-size:0.75rem; color:#64748b; margin-bottom:4px;">${b.count}</span>
+                        <div style="width:28px; height:${heightPct}%; background:${b.color}; border-radius:6px 6px 0 0; transition:height 0.3s;"></div>
+                        <span style="font-size:0.7rem; color:#475569; margin-top:4px;">${b.label}</span>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function renderWordStatsList() {
+            const listEl = document.getElementById('wordStatsList');
+            if (!currentBook || !currentBook.cards) {
+                listEl.innerHTML = '<div style="color:#94a3b8; font-size:0.85rem;">无单词数据</div>';
+                return;
+            }
+            let html = '';
+            currentBook.cards.forEach(c => {
+                const key = c.id || c.tibetan;
+                const dots = getProficiencyDotsHtml(key);
+                html += `
+                    <div class="word-list-row">
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <span style="font-size:1.2rem; font-weight:bold; color:#1e293b;">${c.tibetan || ''}</span>
+                            <span style="color:#64748b; font-size:0.85rem;">${c.meaning || ''}</span>
+                        </div>
+                        <div>${dots}</div>
+                    </div>
+                `;
+            });
+            listEl.innerHTML = html;
         }
 
         window.addEventListener('keydown', (e) => {
             if (e.code === 'Space') {
                 e.preventDefault();
-                if (!isFlipped) flipCard();
+                toggleFlip();
+            } else if (['Digit1', 'Digit2', 'Digit3'].includes(e.code)) {
+                // 键盘快捷键映射：1->不认识(1), 2->模糊(2), 3->认识(3)
+                const mapKey = { 'Digit1': 1, 'Digit2': 2, 'Digit3': 3 };
+                rateCard(mapKey[e.code]);
             }
         });
 
