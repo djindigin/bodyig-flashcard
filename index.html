@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藏语词汇记忆 - 做客（1）多音频序列版</title>
+    <style>
+        :root {
+            --primary: #58cc02;
+            --primary-dark: #46a302;
+            --secondary: #1cb0f6;
+            --accent: #ffc800;
+            --danger: #ff4b4b;
+            --warning: #ff9600;
+            --bg: #f7f7f7;
+            --card-bg: #ffffff;
+            --text-main: #3c3c3c;
+            --text-muted: #777777;
+            --border: #e5e5e5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 单词书切换条 */
+        .book-switcher-bar {
+            max-width: 600px;
+            width: 100%;
+            margin: 12px auto 0;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .book-select {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 2px solid var(--border);
+            background: white;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .book-select:focus {
+            border-color: var(--secondary);
+        }
+
+        /* 顶部导航与状态栏 (Duolingo Style) */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 12px 16px;
+        }
+
+        .streak {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--warning);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .progress-container {
+            flex: 1;
+            margin: 0 20px;
+            background: #e5e5e5;
+            height: 16px;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: var(--primary);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 999px;
+        }
+
+        .stats-badge {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* 主体容器 */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 16px 20px;
+        }
+
+        /* 卡片容器 (Anki Style Flip) */
+        .flashcard-scene {
+            width: 100%;
+            height: 320px;
+            perspective: 1000px;
+            cursor: pointer;
+            margin-bottom: 24px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            border-radius: 20px;
+            box-shadow: 0 6px 0 var(--border);
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: #f0f9ff;
+            border-color: #bae6fd;
+        }
+
+        .tibetan-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #1e293b;
+            word-break: break-all;
+        }
+
+        .wylie-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .translation-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .phonetic-note {
+            font-size: 0.95rem;
+            color: #0284c7;
+            background: #e0f2fe;
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        .pos-badge {
+            font-size: 0.8rem;
+            color: var(--warning);
+            background: #fff3db;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .audio-btn {
+            margin-top: 16px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 0 #0284c7;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .audio-btn:disabled {
+            background: #cbd5e1;
+            box-shadow: 0 4px 0 #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .audio-btn:active:not(:disabled) {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #0284c7;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 16px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Anki 评分按钮组 */
+        .rating-panel {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            display: none;
+        }
+
+        .rating-panel.visible {
+            display: grid;
+        }
+
+        .rate-btn {
+            border: none;
+            padding: 12px 6px;
+            border-radius: 12px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+            transition: transform 0.1s, box-shadow 0.1s;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .rate-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+        }
+
+        .rate-again { background: var(--danger); box-shadow: 0 4px 0 #cc2929; }
+        .rate-hard  { background: var(--warning); box-shadow: 0 4px 0 #cc7a00; }
+        .rate-good  { background: var(--secondary); box-shadow: 0 4px 0 #0284c7; }
+        .rate-easy  { background: var(--primary); box-shadow: 0 4px 0 var(--primary-dark); }
+
+        .initial-action {
+            width: 100%;
+        }
+
+        .show-answer-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 0 var(--primary-dark);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .show-answer-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--primary-dark);
+        }
+
+        .completed-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            width: 100%;
+        }
+
+        .completed-screen h2 {
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+
+        .restart-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 0 var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 单词书切换区 -->
+    <div class="book-switcher-bar">
+        <label for="bookSelector" style="font-weight:600; color:var(--text-muted); font-size:0.9rem;">当前单词书:</label>
+        <select id="bookSelector" class="book-select" onchange="switchBook(this.value)">
+            <option value="basic">初中级藏语词汇大全（含无音频容错）</option>
+            <option value="intermediate" selected>中级课文词汇：做客（1）（28词 多音频序列）</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="streak">🔥 <span id="streakCount">5</span></div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="stats-badge"><span id="currentIndex">1</span>/<span id="totalCount">0</span></div>
+    </header>
+
+    <main id="appMain">
+        <div class="flashcard-scene" id="cardScene" onclick="flipCard()">
+            <div class="flashcard" id="flashcard">
+                <!-- 正面：藏语 -->
+                <div class="card-face card-front">
+                    <div id="frontPos" class="pos-badge" style="display:none;"></div>
+                    <div class="tibetan-text" id="frontTibetan">--</div>
+                    <div class="wylie-text" id="frontWylie">--</div>
+                    <button class="audio-btn" id="frontAudioBtn" onclick="event.stopPropagation(); playAudio();">🔊 发音</button>
+                    <div class="flip-hint">点击卡片或按空格翻面</div>
+                </div>
+                <!-- 背面：中文/注音 -->
+                <div class="card-face card-back">
+                    <div id="backPos" class="pos-badge" style="display:none;"></div>
+                    <div class="translation-text" id="backTranslation">--</div>
+                    <div class="wylie-text" id="backWylie">--</div>
+                    <div class="phonetic-note" id="backPhonetic">条目详情</div>
+                    <button class="audio-btn" id="backAudioBtn" onclick="event.stopPropagation(); playAudio();">🔊 再听一次</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="initial-action" id="actionShow">
+            <button class="show-answer-btn" onclick="flipCard()">显示答案 (Space)</button>
+        </div>
+
+        <div class="rating-panel" id="ratingPanel">
+            <button class="rate-btn rate-again" onclick="rateCard('again')">重来<br><small>&lt;1m</small></button>
+            <button class="rate-btn rate-hard" onclick="rateCard('hard')">困难<br><small>&lt;6m</small></button>
+            <button class="rate-btn rate-good" onclick="rateCard('good')">良好<br><small>&lt;10m</small></button>
+            <button class="rate-btn rate-easy" onclick="rateCard('easy')">简单<br><small>4d</small></button>
+        </div>
+    </main>
+
+    <div class="completed-screen" id="completedScreen">
+        <h2>🎉 太棒了！本轮复习完成</h2>
+        <p>你已过完当前单词书所有卡片。</p>
+        <button class="restart-btn" onclick="restartSession()">重新复习本单词书</button>
+    </div>
+
+    <script>
+        // 定义双单词书结构
+        const wordbooks = {
+            basic: {
+                name: "初中级藏语词汇大全",
+                cards: [
+                    { id: "008", tibetan: "བཀྲ་ཤིས་བདེ་ལེགས", wylie: "bkra shis bde legs", meaning: "扎西德勒 / 吉祥如意", phonetic: "扎西德勒", pos: "" },
+                    { id: "009", tibetan: "ཐུགས་རྗེ་ཆེ", wylie: "thugs rje che", meaning: "谢谢", phonetic: "图杰切", pos: "" },
+                    { id: null, tibetan: "སྤྲིན་པ", wylie: "sprin pa", meaning: "云彩（无独立音频）", phonetic: "无音频示例", pos: "" }
+                ]
+            },
+            intermediate: {
+                name: "中级课文词汇：做客（1）",
+                cards: [
+                    { id: "001", tibetan: "མགྲོན་པོ", wylie: "mgron po", meaning: "客人", phonetic: "音频: 001", pos: "" },
+                    { id: "004", tibetan: "སྐུ་མགྲོན", wylie: "sku mgron", meaning: "客人尊称", phonetic: "音频: 004", pos: "" },
+                    { id: "007", tibetan: "གྱང", wylie: "gyang", meaning: "墙", phonetic: "音频: 007", pos: "" },
+                    { id: "010", tibetan: "ཡི་གེ", wylie: "yi ge", meaning: "信件", phonetic: "音频: 010", pos: "" },
+                    { id: "013", tibetan: "སྤུན་ཟླ", wylie: "spun zla", meaning: "亲戚", phonetic: "音频: 013", pos: "" },
+                    { id: "016", tibetan: "རྐུན་མ", wylie: "rkun ma", meaning: "小偷", phonetic: "音频: 016", pos: "" },
+                    { id: "019", tibetan: "ཁང་མིག", wylie: "khang mig", meaning: "房间", phonetic: "音频: 019", pos: "" },
+                    { id: "022", tibetan: "འགྲམ་ལྕག་གཞུག", wylie: "'gram lcag gzhug", meaning: "扇巴掌", phonetic: "音频: 022", pos: "v." },
+                    { id: "025, 026, 027", tibetan: "གཞུ། གཞུས། གཞུ།", wylie: "gzhu / gzhyus / gzhu", meaning: "击打；投掷", phonetic: "音频: 025, 026, 027", pos: "v." },
+                    { id: "030", tibetan: "མགྲོན་ཁང", wylie: "mgron khang", meaning: "旅馆", phonetic: "音频: 030", pos: "" },
+                    { id: "033", tibetan: "གནམ་གྲུ་ཐང", wylie: "gnam gru thang", meaning: "机场", phonetic: "音频: 033", pos: "" },
+                    { id: "036", tibetan: "སྒོ་ར", wylie: "sgo ra", meaning: "院子", phonetic: "音频: 036", pos: "" },
+                    { id: "039", tibetan: "བྲེལ་བ་ཆེན་པོ", wylie: "brel ba chen po", meaning: "忙碌的", phonetic: "音频: 039", pos: "" },
+                    { id: "042", tibetan: "དངོས་གནས", wylie: "dngos gnas", meaning: "真的", phonetic: "音频: 042", pos: "" },
+                    { id: "045", tibetan: "ཐུབ", wylie: "thub", meaning: "能够", phonetic: "音频: 045", pos: "v." },
+                    { id: "048, 049, 050", tibetan: "དབྱུག དབྱུགས། དབྱུག", wylie: "dbyug / dbyugs / dbyug", meaning: "扔", phonetic: "音频: 048, 049, 050", pos: "v." },
+                    { id: "052", tibetan: "སྐད་གྲགས་ཆེན་པོ", wylie: "skad grags chen po", meaning: "有名的", phonetic: "音频: 052", pos: "" },
+                    { id: "055", tibetan: "སྐད་གྲགས", wylie: "skad grags", meaning: "名气", phonetic: "音频: 055", pos: "" },
+                    { id: "058", tibetan: "ཁག", wylie: "khag", meaning: "罪过", phonetic: "音频: 058", pos: "" },
+                    { id: "061", tibetan: "མྱོང", wylie: "myong", meaning: "… 过", phonetic: "音频: 061", pos: "adv." },
+                    { id: "064", tibetan: "དེ་ནས", wylie: "de nas", meaning: "之后，此后", phonetic: "音频: 064", pos: "" },
+                    { id: "068", tibetan: "ཁང་པ་རྒྱག", wylie: "khang pa rgyag", meaning: "盖房子", phonetic: "音频: 068", pos: "v." },
+                    { id: "071", tibetan: "ཤྭེག", wylie: "shweg", meaning: "丢失", phonetic: "音频: 071", pos: "v." },
+                    { id: "074, 075, 076", tibetan: "རྐུ། བརྐུས། རྐུ", wylie: "rku / brkus / rku", meaning: "偷窃", phonetic: "音频: 074, 075, 076", pos: "v." },
+                    { id: "078", tibetan: "བཞེངས", wylie: "bzhengs", meaning: "建造（H）", phonetic: "音频: 078", pos: "v." },
+                    { id: "081, 082, 083", tibetan: "སྡུད། བསྡུས། སྡུད", wylie: "sdud / bsdus / sdud", meaning: "聚；招收", phonetic: "音频: 081, 082, 083", pos: "v." },
+                    { id: "086", tibetan: "ཟད་དེ", wylie: "zad de", meaning: "完全", phonetic: "音频: 086", pos: "adv." },
+                    { id: "089", tibetan: "གསང་སྤྱོད", wylie: "gsang spyod", meaning: "厕所", phonetic: "音频: 089", pos: "" }
+                ]
+            }
+        };
+
+        let currentBookKey = 'intermediate';
+        let currentDeck = wordbooks[currentBookKey].cards;
+        let currentIndex = 0;
+        let isFlipped = false;
+        let currentAudio = null;
+
+        function initApp() {
+            switchBook('intermediate');
+        }
+
+        function switchBook(bookKey) {
+            stopAudio();
+            currentBookKey = bookKey;
+            currentDeck = wordbooks[bookKey].cards;
+            currentIndex = 0;
+            
+            const selectEl = document.getElementById('bookSelector');
+            if (selectEl.value !== bookKey) {
+                selectEl.value = bookKey;
+            }
+
+            document.getElementById('totalCount').innerText = currentDeck.length;
+            document.getElementById('cardScene').style.display = 'block';
+            document.getElementById('completedScreen').style.display = 'none';
+            loadCard(0);
+        }
+
+        function loadCard(index) {
+            stopAudio();
+            if (index >= currentDeck.length) {
+                showCompleted();
+                return;
+            }
+            currentIndex = index;
+            isFlipped = false;
+            document.getElementById('flashcard').classList.remove('flipped');
+            document.getElementById('ratingPanel').classList.remove('visible');
+            document.getElementById('actionShow').style.display = 'block';
+
+            const item = currentDeck[currentIndex];
+            
+            // 词性展示逻辑
+            const fPos = document.getElementById('frontPos');
+            const bPos = document.getElementById('backPos');
+            if (item.pos) {
+                fPos.style.display = 'inline-block';
+                fPos.innerText = item.pos;
+                bPos.style.display = 'inline-block';
+                bPos.innerText = item.pos;
+            } else {
+                fPos.style.display = 'none';
+                bPos.style.display = 'none';
+            }
+
+            document.getElementById('frontTibetan').innerText = item.tibetan;
+            document.getElementById('frontWylie').innerText = item.wylie || '-';
+            document.getElementById('backTranslation').innerText = item.meaning;
+            document.getElementById('backWylie').innerText = item.wylie || '-';
+            document.getElementById('backPhonetic').innerText = item.phonetic;
+
+            updateAudioButtonState(item);
+            updateProgress();
+            
+            if (item.id) {
+                playAudio();
+            }
+        }
+
+        function updateAudioButtonState(item) {
+            const fBtn = document.getElementById('frontAudioBtn');
+            const bBtn = document.getElementById('backAudioBtn');
+            if (item.id) {
+                fBtn.disabled = false;
+                fBtn.innerText = `🔊 发音 (${item.id})`;
+                bBtn.disabled = false;
+                bBtn.innerText = `🔊 再听一次 (${item.id})`;
+            } else {
+                fBtn.disabled = true;
+                fBtn.innerText = '🔇 无音频';
+                bBtn.disabled = true;
+                bBtn.innerText = '🔇 无音频';
+            }
+        }
+
+        function flipCard() {
+            if (!isFlipped) {
+                isFlipped = true;
+                document.getElementById('flashcard').classList.add('flipped');
+                document.getElementById('ratingPanel').classList.add('visible');
+                document.getElementById('actionShow').style.display = 'none';
+            }
+        }
+
+        function stopAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.onended = null;
+                currentAudio = null;
+            }
+        }
+
+        function playAudio() {
+            const item = currentDeck[currentIndex];
+            if (!item || !item.id) return;
+            stopAudio();
+
+            // 解析逗号分隔的多个音频序号，如 "025, 026, 027" -> ["025", "026", "027"]
+            const audioIds = item.id.split(',').map(s => s.trim()).filter(Boolean);
+            if (audioIds.length === 0) return;
+
+            let seqIdx = 0;
+
+            function playNextSeq() {
+                if (seqIdx >= audioIds.length) {
+                    currentAudio = null;
+                    return;
+                }
+                const audioPath = `clips/${audioIds[seqIdx]}.mp3`;
+                currentAudio = new Audio(audioPath);
+                
+                currentAudio.play().catch(e => {
+                    console.log(`音频文件 clips/${audioIds[seqIdx]}.mp3 未找到或被拦截`);
+                });
+
+                currentAudio.onended = () => {
+                    seqIdx++;
+                    playNextSeq();
+                };
+            }
+
+            playNextSeq();
+        }
+
+        function rateCard(rating) {
+            loadCard(currentIndex + 1);
+        }
+
+        function updateProgress() {
+            document.getElementById('currentIndex').innerText = currentIndex + 1;
+            const pct = (currentIndex / currentDeck.length) * 100;
+            document.getElementById('progressBar').style.width = `${pct}%`;
+        }
+
+        function showCompleted() {
+            stopAudio();
+            document.getElementById('cardScene').style.display = 'none';
+            document.getElementById('actionShow').style.display = 'none';
+            document.getElementById('ratingPanel').style.display = 'none';
+            document.getElementById('completedScreen').style.display = 'flex';
+            document.getElementById('progressBar').style.width = '100%';
+        }
+
+        function restartSession() {
+            loadCard(0);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (!isFlipped) flipCard();
+            }
+        });
+
+        initApp();
+    </script>
+</body>
+</html>
