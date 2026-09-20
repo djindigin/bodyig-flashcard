@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BODYIG-FLASHCARD 藏语单词卡</title>
+    <title>BODYIG FLASHCARD</title>
     <!-- 引入 SheetJS 用于解析 xlsx/csv -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <style>
@@ -131,7 +131,10 @@
         .modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.1rem; }
         .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
         .modal-body { padding: 20px; overflow-y: auto; flex: 1; }
-        .word-list-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+        .word-list-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; cursor: pointer; user-select: none; transition: background 0.15s, transform 0.08s; }
+        .word-list-row:hover { background: #f0fdf4; }
+        .word-list-row:active { transform: scale(0.99); }
+        .word-list-row.active { background: #dcfce7; }
         .chart-container { margin-bottom: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
     </style>
 </head>
@@ -748,13 +751,17 @@
                 listEl.innerHTML = '<div style="color:#94a3b8; font-size:0.85rem;">无单词数据</div>';
                 return;
             }
+
+            // 用“词书原始数组下标”作为跳转依据，而不是依赖 id。
+            // 这样即使音频 ID 重复、缺失或格式不同，也能准确定位到这一行对应的单词。
             let html = '';
-            currentBook.cards.forEach(c => {
+            currentBook.cards.forEach((c, cardIndex) => {
                 const key = c.id || c.tibetan;
                 const dots = getProficiencyDotsHtml(key);
+                const isActive = !shuffleMode && queue.length && queue[currentIndex] === c;
                 html += `
-                    <div class="word-list-row">
-                        <div style="display:flex; align-items:center; gap:12px;">
+                    <div class="word-list-row${isActive ? ' active' : ''}" data-card-index="${cardIndex}" title="点击跳转到这个单词">
+                        <div style="display:flex; align-items:center; gap:12px; min-width:0;">
                             <span style="font-size:1.2rem; font-weight:bold; color:#1e293b;">${c.tibetan || ''}</span>
                             <span style="color:#64748b; font-size:0.85rem;">${c.meaning || ''}</span>
                         </div>
@@ -763,6 +770,42 @@
                 `;
             });
             listEl.innerHTML = html;
+
+            // 使用事件委托绑定点击，避免动态 innerHTML 生成的元素无法触发跳转。
+            listEl.onclick = (e) => {
+                const row = e.target.closest('.word-list-row');
+                if (!row || !listEl.contains(row)) return;
+                const cardIndex = Number(row.dataset.cardIndex);
+                if (!Number.isInteger(cardIndex)) return;
+                jumpToWordFromStats(cardIndex);
+            };
+        }
+
+        function jumpToWordFromStats(cardIndex) {
+            const currentBook = booksMap[currentBookId];
+            if (!currentBook || !Array.isArray(currentBook.cards)) return;
+            if (cardIndex < 0 || cardIndex >= currentBook.cards.length) return;
+
+            // 关闭统计弹窗后直接显示目标单词。
+            closeStatsModal();
+
+            if (shuffleMode) {
+                // 乱序模式：保留当前已经生成的乱序队列，只找到目标卡片所在位置。
+                const target = currentBook.cards[cardIndex];
+                const targetPos = queue.findIndex(q => q === target || (q.id && target.id && q.id === target.id));
+                if (targetPos >= 0) {
+                    loadCard(targetPos);
+                } else {
+                    // 极端情况下队列已被重建，则重新建立乱序队列后再定位。
+                    buildQueue();
+                    const rebuiltPos = queue.findIndex(q => q === target || (q.id && target.id && q.id === target.id));
+                    if (rebuiltPos >= 0) loadCard(rebuiltPos);
+                }
+            } else {
+                // 顺序模式：队列严格使用词书原始顺序，因此 cardIndex 就是目标位置。
+                queue = [...currentBook.cards];
+                loadCard(cardIndex);
+            }
         }
 
         window.addEventListener('keydown', (e) => {

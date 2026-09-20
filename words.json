@@ -1,6 +1,6 @@
 {
   "bookId": "imported_tibetan_book",
-  "name": "中级藏语词书",
+  "name": "自定义导入藏语词书",
   "cards": [
     {
       "id": "001",
@@ -18,7 +18,7 @@
       "wylie": "zin",
       "meaning": "（时间）过了",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "sin13",
       "source": "时间1",
       "example": ""
     },
@@ -28,7 +28,7 @@
       "wylie": "tag tag",
       "meaning": "正好",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "da55da54",
       "source": "时间1",
       "example": ""
     },
@@ -38,7 +38,7 @@
       "wylie": "gcig pa",
       "meaning": "相同的",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "ji55ba54",
       "source": "时间1",
       "example": ""
     },
@@ -48,7 +48,7 @@
       "wylie": "srog",
       "meaning": "生命",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "so54",
       "source": "时间1",
       "example": ""
     },
@@ -58,7 +58,7 @@
       "wylie": "g.yar, g.yar, g.yar",
       "meaning": "借",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "yaa55",
       "source": "时间1",
       "example": ""
     },
@@ -68,7 +68,7 @@
       "wylie": "da rang zhogs kas",
       "meaning": "今天早上",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "ta113rang13xo113ge54",
       "source": "时间1",
       "example": ""
     },
@@ -88,7 +88,7 @@
       "wylie": "lang, langs, lang",
       "meaning": "起；站",
       "pos": "vi.",
-      "pronunciation": "",
+      "pronunciation": "lang13",
       "source": "时间1",
       "example": ""
     },
@@ -118,7 +118,7 @@
       "wylie": "lhag ma",
       "meaning": "剩余的",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "lha55ma54",
       "source": "时间1",
       "example": ""
     },
@@ -168,7 +168,7 @@
       "wylie": "nang don",
       "meaning": "内容；含义",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "nang113toen13",
       "source": "时间1",
       "example": ""
     },
@@ -178,7 +178,7 @@
       "wylie": "shog grangs",
       "meaning": "页数",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "xo55zhang54",
       "source": "时间1",
       "example": ""
     },
@@ -188,7 +188,7 @@
       "wylie": "khrud, bkrus, bkru",
       "meaning": "洗",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "chue54 zhue54 chu54",
       "source": "时间1",
       "example": ""
     },
@@ -198,7 +198,7 @@
       "wylie": "nyo cha brgyug",
       "meaning": "购物",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "nyo113qa54",
       "source": "时间1",
       "example": ""
     },
@@ -228,7 +228,7 @@
       "wylie": "nyal, nyal, nyal",
       "meaning": "睡",
       "pos": "vi.",
-      "pronunciation": "",
+      "pronunciation": "nye13",
       "source": "时间1",
       "example": ""
     },
@@ -238,7 +238,7 @@
       "wylie": "tshog, 'tshogs, 'tshog",
       "meaning": "上（课）；开（会）",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "co54",
       "source": "时间1",
       "example": ""
     },
@@ -278,7 +278,7 @@
       "wylie": "chung chung",
       "meaning": "小的",
       "pos": "adj",
-      "pronunciation": "",
+      "pronunciation": "qung55qung55",
       "source": "时间2",
       "example": ""
     },
@@ -298,7 +298,7 @@
       "wylie": "yang sa yang sa",
       "meaning": "经常",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "yang113si54yang113si54",
       "source": "时间2",
       "example": ""
     },
@@ -318,7 +318,7 @@
       "wylie": "gzhas",
       "meaning": "歌",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "xe13",
       "source": "时间2",
       "example": ""
     },
@@ -328,7 +328,7 @@
       "wylie": "mtshams mtshams",
       "meaning": "偶尔",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "cam55cam54",
       "source": "时间2",
       "example": ""
     },
@@ -338,7 +338,7 @@
       "wylie": "rtag par",
       "meaning": "总是",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "da55baa55",
       "source": "时间2",
       "example": ""
     },
@@ -348,7 +348,7 @@
       "wylie": "hrog tsam nas",
       "meaning": "待会儿",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "di54zine",
       "source": "时间2",
       "example": ""
     },
@@ -368,7 +368,7 @@
       "wylie": "dran",
       "meaning": "思念；想",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "chen113",
       "source": "时间2",
       "example": ""
     },
@@ -408,7 +408,7 @@
       "wylie": "tshes pa",
       "meaning": "日期，号",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "ce55ba54",
       "source": "时间2",
       "example": ""
     },
@@ -458,7 +458,7 @@
       "wylie": "gtong, btang, gtang",
       "meaning": "动词化后缀",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "dang55 dang55 dang55",
       "source": "时间2",
       "example": ""
     },
@@ -488,7 +488,7 @@
       "wylie": "gang ba",
       "meaning": "全部",
       "pos": "pron.",
-      "pronunciation": "",
+      "pronunciation": "gang113ga54",
       "source": "天气1",
       "example": ""
     },
@@ -508,7 +508,7 @@
       "wylie": "de shag",
       "meaning": "最近",
       "pos": "adv",
-      "pronunciation": "",
+      "pronunciation": "ten113xa54",
       "source": "天气1",
       "example": ""
     },
@@ -518,7 +518,7 @@
       "wylie": "deng sang",
       "meaning": "最近",
       "pos": "adv",
-      "pronunciation": "",
+      "pronunciation": "teng113sang13",
       "source": "天气1",
       "example": ""
     },
@@ -538,7 +538,7 @@
       "wylie": "srab po",
       "meaning": "薄的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "zhe(b)55bo54",
       "source": "天气1",
       "example": ""
     },
@@ -558,7 +558,7 @@
       "wylie": "khyer, khyer, 'khyer",
       "meaning": "携，带",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "kyi55",
       "source": "天气1",
       "example": ""
     },
@@ -568,7 +568,7 @@
       "wylie": "len, blangs, blang",
       "meaning": "取（来）",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "len13 lang54 lang55",
       "source": "天气1",
       "example": ""
     },
@@ -578,7 +578,7 @@
       "wylie": "lde mig",
       "meaning": "钥匙",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "di113mi54",
       "source": "天气1",
       "example": ""
     },
@@ -648,7 +648,7 @@
       "wylie": "gnam dungs",
       "meaning": "晴天",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "nam55tang55",
       "source": "天气1",
       "example": ""
     },
@@ -658,7 +658,7 @@
       "wylie": "gnam ngan",
       "meaning": "阴天",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "nam55ngen55",
       "source": "天气1",
       "example": ""
     },
@@ -688,7 +688,7 @@
       "wylie": "gyur ldog chen po",
       "meaning": "变化大的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "gyung113do54qen55bo54",
       "source": "天气1",
       "example": ""
     },
@@ -698,7 +698,7 @@
       "wylie": "dro po",
       "meaning": "温暖的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "cho113bo54",
       "source": "天气1",
       "example": ""
     },
@@ -718,7 +718,7 @@
       "wylie": "bab, bab, 'bab",
       "meaning": "落",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "peb13",
       "source": "天气1",
       "example": ""
     },
@@ -728,7 +728,7 @@
       "wylie": "gangs",
       "meaning": "雪",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "kang13",
       "source": "天气1",
       "example": ""
     },
@@ -748,7 +748,7 @@
       "wylie": "rgyug, brgyug, brgyug",
       "meaning": "动词化后缀",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "gyəb13 gyəb13 gyəb13",
       "source": "天气1",
       "example": ""
     },
@@ -758,7 +758,7 @@
       "wylie": "sprin pa",
       "meaning": "云朵",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "zhin55ba54",
       "source": "天气1",
       "example": ""
     },
@@ -768,7 +768,7 @@
       "wylie": "bsil po",
       "meaning": "凉爽的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "sii55bo54",
       "source": "天气1",
       "example": ""
     },
@@ -779,7 +779,7 @@
       "meaning": "患；击中",
       "pos": "v.",
       "pronunciation": "",
-      "source": "天气1",
+      "source": "天气2",
       "example": ""
     },
     {
@@ -788,7 +788,7 @@
       "wylie": "skye, skyes, skye",
       "meaning": "生",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "gye54",
       "source": "天气2",
       "example": ""
     },
@@ -798,17 +798,17 @@
       "wylie": "zhu, zhus, zhu",
       "meaning": "融化",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "xu13 xue13 xu13",
       "source": "天气2",
       "example": ""
     },
     {
       "id": "162, 163",
-      "tibetan": "འདོགས། བཏོགས། བཏགས།",
+      "tibetan": "འདོགས། བཏགས། གདགས།",
       "wylie": "dogs, btogs, btags",
       "meaning": "拴；起名",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "do13 da54 da13",
       "source": "天气2",
       "example": ""
     },
@@ -818,7 +818,7 @@
       "wylie": "ster",
       "meaning": "给予；喂",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "dee55",
       "source": "天气2",
       "example": ""
     },
@@ -828,7 +828,7 @@
       "wylie": "thibs",
       "meaning": "遮蔽",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "tib54",
       "source": "天气2",
       "example": ""
     },
@@ -838,7 +838,7 @@
       "wylie": "then",
       "meaning": "拉；抽",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "ten55",
       "source": "天气2",
       "example": ""
     },
@@ -858,7 +858,7 @@
       "wylie": "sos po",
       "meaning": "新鲜的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "soe55bo54",
       "source": "天气2",
       "example": ""
     },
@@ -878,7 +878,7 @@
       "wylie": "sun po",
       "meaning": "烦的",
       "pos": "adj.",
-      "pronunciation": "",
+      "pronunciation": "suen55bo54",
       "source": "天气2",
       "example": ""
     },
@@ -898,7 +898,7 @@
       "wylie": "a zhang",
       "meaning": "舅舅",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "a55xang55",
       "source": "天气2",
       "example": ""
     },
@@ -908,7 +908,7 @@
       "wylie": "a ne",
       "meaning": "姑姑",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "a55ni54",
       "source": "天气2",
       "example": ""
     },
@@ -948,7 +948,7 @@
       "wylie": "ci yang",
       "meaning": "一点也，任何也",
       "pos": "adv.",
-      "pronunciation": "",
+      "pronunciation": "jie54",
       "source": "天气2",
       "example": ""
     },
@@ -978,7 +978,7 @@
       "wylie": "gung seng",
       "meaning": "假期",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "kung113sang54",
       "source": "天气2",
       "example": ""
     },
@@ -1018,7 +1018,7 @@
       "wylie": "bzhad, bzhad, bzhad",
       "meaning": "绽放",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "xe13",
       "source": "天气2",
       "example": ""
     },
@@ -1048,7 +1048,7 @@
       "wylie": "sgang",
       "meaning": "上面",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "kang13",
       "source": "天气2",
       "example": ""
     },
@@ -1057,7 +1057,7 @@
       "tibetan": "མགྲོན་པོ",
       "wylie": "mgron po",
       "meaning": "客人",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1077,7 +1077,7 @@
       "tibetan": "གྱང",
       "wylie": "gyang",
       "meaning": "墙",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1086,20 +1086,40 @@
       "id": "做客1_010",
       "tibetan": "ཡི་གེ",
       "wylie": "yi ge",
+      "meaning": "文字",
+      "pos": "n.",
+      "pronunciation": "yi113ge54",
+      "source": "做客1",
+      "example": ""
+    },
+    {
+      "id": "",
+      "tibetan": "འཕྲིན་ཡིག",
+      "wylie": "",
       "meaning": "信件",
-      "pos": "",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "网友补充",
+      "example": ""
+    },
+    {
+      "id": "做客1_013",
+      "tibetan": "སྤུན་ཀྱག",
+      "wylie": "spun zla",
+      "meaning": "亲戚",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
     },
     {
-      "id": "做客1_013",
+      "id": "",
       "tibetan": "སྤུན་ཟླ",
-      "wylie": "spun zla",
-      "meaning": "亲戚",
-      "pos": "",
+      "wylie": "",
+      "meaning": "同胞",
+      "pos": "n.",
       "pronunciation": "",
-      "source": "做客1",
+      "source": "网友补充",
       "example": ""
     },
     {
@@ -1107,7 +1127,7 @@
       "tibetan": "རྐུན་མ",
       "wylie": "rkun ma",
       "meaning": "小偷",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1117,7 +1137,7 @@
       "tibetan": "ཁང་མིག",
       "wylie": "khang mig",
       "meaning": "房间",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1147,7 +1167,7 @@
       "tibetan": "མགྲོན་ཁང",
       "wylie": "mgron khang",
       "meaning": "旅馆",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1157,7 +1177,7 @@
       "tibetan": "གནམ་གྲུ་ཐང",
       "wylie": "gnam gru thang",
       "meaning": "机场",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1167,7 +1187,7 @@
       "tibetan": "སྒོ་ར",
       "wylie": "sgo ra",
       "meaning": "院子",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1177,7 +1197,7 @@
       "tibetan": "བྲེལ་བ་ཆེན་པོ",
       "wylie": "brel ba chen po",
       "meaning": "忙碌的",
-      "pos": "",
+      "pos": "adj.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1187,7 +1207,7 @@
       "tibetan": "དངོས་གནས",
       "wylie": "dngos gnas",
       "meaning": "真的",
-      "pos": "",
+      "pos": "adv.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1208,7 +1228,7 @@
       "wylie": "dbyug, dbyugs, dbyug",
       "meaning": "扔",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "yu54",
       "source": "做客1",
       "example": ""
     },
@@ -1217,7 +1237,7 @@
       "tibetan": "སྐད་གྲགས་ཆེན་པོ",
       "wylie": "skad grags chen po",
       "meaning": "有名的",
-      "pos": "",
+      "pos": "adj.",
       "pronunciation": "",
       "source": "做客1",
       "example": ""
@@ -1227,8 +1247,8 @@
       "tibetan": "སྐད་གྲགས",
       "wylie": "skad grags",
       "meaning": "名气",
-      "pos": "",
-      "pronunciation": "",
+      "pos": "n.",
+      "pronunciation": "ge55zha54",
       "source": "做客1",
       "example": ""
     },
@@ -1237,8 +1257,8 @@
       "tibetan": "ཁག",
       "wylie": "khag",
       "meaning": "罪过",
-      "pos": "",
-      "pronunciation": "",
+      "pos": "n.",
+      "pronunciation": "ka54",
       "source": "做客1",
       "example": ""
     },
@@ -1248,7 +1268,7 @@
       "wylie": "myong",
       "meaning": "adv … 过",
       "pos": "adv.",
-      "pronunciation": "",
+      "pronunciation": "nyong13",
       "source": "做客1",
       "example": ""
     },
@@ -1258,7 +1278,7 @@
       "wylie": "de nas",
       "meaning": "之后，此后",
       "pos": "",
-      "pronunciation": "",
+      "pronunciation": "te113ne54",
       "source": "做客1",
       "example": ""
     },
@@ -1274,17 +1294,17 @@
     },
     {
       "id": "做客1_071",
-      "tibetan": "ཤྭེག",
+      "tibetan": "བརླག",
       "wylie": "shweg",
       "meaning": "丢失",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "la54",
       "source": "做客1",
       "example": ""
     },
     {
       "id": "做客1_074, 做客1_075, 做客1_076",
-      "tibetan": "རྐུ། བརྐུས། རྐུ",
+      "tibetan": "རྐུ། བརྐུས། བརྐུ།",
       "wylie": "rku, brkus, rku",
       "meaning": "偷窃",
       "pos": "v.",
@@ -1298,27 +1318,27 @@
       "wylie": "bzhengs",
       "meaning": "建造",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "xeng13",
       "source": "做客1",
       "example": ""
     },
     {
       "id": "做客1_081, 做客1_082, 做客1_083",
-      "tibetan": "སྡུད། བསྡུས། སྡུད",
+      "tibetan": "སྡུད། བསྡུས། བསྡུ།",
       "wylie": "sdud, bsdus, sdud",
       "meaning": "聚；招收",
       "pos": "v.",
-      "pronunciation": "",
+      "pronunciation": "due13 due13 du13",
       "source": "做客1",
       "example": ""
     },
     {
       "id": "做客1_086",
-      "tibetan": "ཟད་དེ",
+      "tibetan": "རྦད་དེ",
       "wylie": "zad de",
       "meaning": "完全",
       "pos": "adv.",
-      "pronunciation": "",
+      "pronunciation": "pe13de",
       "source": "做客1",
       "example": ""
     },
@@ -1327,9 +1347,289 @@
       "tibetan": "གསང་སྤྱོད",
       "wylie": "gsang spyod",
       "meaning": "厕所",
-      "pos": "",
+      "pos": "n.",
       "pronunciation": "",
       "source": "做客1",
+      "example": ""
+    },
+    {
+      "id": "240",
+      "tibetan": "དཀྱིལ།",
+      "wylie": "dkyil",
+      "meaning": "中间",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "243",
+      "tibetan": "གདོང་།",
+      "wylie": "gdong",
+      "meaning": "脸",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "246",
+      "tibetan": "སྒོར་སྒོར།",
+      "wylie": "sgor sgor",
+      "meaning": "圆圆的",
+      "pos": "adj",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "249",
+      "tibetan": "ལེབ་ལེབ",
+      "wylie": "leb leb",
+      "meaning": "扁扁的",
+      "pos": "adj",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "252",
+      "tibetan": "འོག",
+      "wylie": "og",
+      "meaning": "下",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "255",
+      "tibetan": "འོག་མ།",
+      "wylie": "og ma",
+      "meaning": "弟弟妹妹",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "258",
+      "tibetan": "ཆང་ས་རྒྱག",
+      "wylie": "chang sa rgyag",
+      "meaning": "结婚",
+      "pos": "v.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "264",
+      "tibetan": "ཨ་ཁུ",
+      "wylie": "a khu",
+      "meaning": "叔叔",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "267",
+      "tibetan": "སྤུ་མོ",
+      "wylie": "spu mo",
+      "meaning": "姨妈",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "270",
+      "tibetan": "གཡས།",
+      "wylie": "g.yas",
+      "meaning": "右",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "273",
+      "tibetan": "གཡོན།",
+      "wylie": "g.yon",
+      "meaning": "左",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "285",
+      "tibetan": "བུད་མེད།",
+      "wylie": "bud med",
+      "meaning": "女性",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "261",
+      "tibetan": "སྨན་ཁབ།",
+      "wylie": "sman khab",
+      "meaning": "医用注射针",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "311",
+      "tibetan": "སྤུན་ཟླ",
+      "wylie": "spun zla",
+      "meaning": "同胞",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "336",
+      "tibetan": "སློབ་ཡོན།",
+      "wylie": "slob yon",
+      "meaning": "学费",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "291",
+      "tibetan": "ས་ཁྲ",
+      "wylie": "sa khra",
+      "meaning": "地图",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "294",
+      "tibetan": "སྦུག",
+      "wylie": "sbug",
+      "meaning": "内，里",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "297",
+      "tibetan": "རྒྱུག་ཁྲེལ།",
+      "wylie": "rgyug khrel",
+      "meaning": "行李",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "300, 301, 302, 303",
+      "tibetan": "འཇོག བཞག\nབཞག འཇོག",
+      "wylie": "jog bzhag / bzhag 'jog",
+      "meaning": "放置",
+      "pos": "v.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "305",
+      "tibetan": "ཁ་སྤྱོད།",
+      "wylie": "kha spyod",
+      "meaning": "对面",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "308",
+      "tibetan": "ཤེས།",
+      "wylie": "shes",
+      "meaning": "知道，懂得",
+      "pos": "v.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "314",
+      "tibetan": "མི་དམངས།",
+      "wylie": "mi dmangs",
+      "meaning": "人民",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "317",
+      "tibetan": "ཟུར།",
+      "wylie": "zur",
+      "meaning": "旁边；角",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "321",
+      "tibetan": "འཁྲིས།",
+      "wylie": "khris",
+      "meaning": "旁边",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "324",
+      "tibetan": "གཞོན་ནུ",
+      "wylie": "gzhon nu",
+      "meaning": "年轻人",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "327",
+      "tibetan": "ལོགས་འགའམ།",
+      "wylie": "logs 'ga'am",
+      "meaning": "分开的",
+      "pos": "adj.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "330",
+      "tibetan": "འདྲ་མིན་སྣ་ཚོགས།",
+      "wylie": "dra min sna tshogs",
+      "meaning": "形形色色，各不相同的",
+      "pos": "adj.",
+      "pronunciation": "",
+      "source": "做客2",
+      "example": ""
+    },
+    {
+      "id": "333",
+      "tibetan": "གླ་ཆ།",
+      "wylie": "gla cha",
+      "meaning": "工资",
+      "pos": "n.",
+      "pronunciation": "",
+      "source": "做客2",
       "example": ""
     }
   ]
