@@ -344,7 +344,7 @@
     },
     {
       "id": "时间2_033",
-      "tibetan": "ཧྲོག་ཙམ་ནས",
+      "tibetan": "ཏོག་ཙམ་ནས",
       "wylie": "hrog tsam nas",
       "meaning": "待会儿",
       "pos": "",
@@ -484,8 +484,8 @@
     },
     {
       "id": "074",
-      "tibetan": "གང་བ",
-      "wylie": "gang ba",
+      "tibetan": "གང་ག",
+      "wylie": "gang ga",
       "meaning": "全部",
       "pos": "pron.",
       "pronunciation": "gang113ga54",
@@ -744,7 +744,7 @@
     },
     {
       "id": "143, 144, 145",
-      "tibetan": "རྒྱུག བརྒྱུག། བརྒྱུག",
+      "tibetan": "རྒྱག བརྒྱབ། བརྒྱག",
       "wylie": "rgyug, brgyug, brgyug",
       "meaning": "动词化后缀",
       "pos": "",
@@ -1434,11 +1434,11 @@
     },
     {
       "id": "267",
-      "tibetan": "སྤུ་མོ",
-      "wylie": "spu mo",
+      "tibetan": "སྲུ་མོ",
+      "wylie": "sru mo",
       "meaning": "姨妈",
       "pos": "n.",
-      "pronunciation": "",
+      "pronunciation": "su55mo54",
       "source": "做客2",
       "example": ""
     },
@@ -1524,8 +1524,8 @@
     },
     {
       "id": "297",
-      "tibetan": "རྒྱུག་ཁྲེལ།",
-      "wylie": "rgyug khrel",
+      "tibetan": "རྡོག་ཁྲེས།",
+      "wylie": "rdog khres",
       "meaning": "行李",
       "pos": "n.",
       "pronunciation": "",
@@ -1534,8 +1534,8 @@
     },
     {
       "id": "300, 301, 302, 303",
-      "tibetan": "འཇོག བཞག\nབཞག འཇོག",
-      "wylie": "jog bzhag / bzhag 'jog",
+      "tibetan": "འཇོག བཞག\nབཞག ཞོག",
+      "wylie": "jog bzhag bzhag 'jog",
       "meaning": "放置",
       "pos": "v.",
       "pronunciation": "",
@@ -1544,8 +1544,8 @@
     },
     {
       "id": "305",
-      "tibetan": "ཁ་སྤྱོད།",
-      "wylie": "kha spyod",
+      "tibetan": "ཁ་སྤྲོད།",
+      "wylie": "kha sprod",
       "meaning": "对面",
       "pos": "n.",
       "pronunciation": "",
