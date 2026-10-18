@@ -254,8 +254,8 @@
     },
     {
       "id": "时间2_004",
-      "tibetan": "བརྩམས་སྒྲིག",
-      "wylie": "brtsams sgrig",
+      "tibetan": "བརྩམས་སྒྲུང་།",
+      "wylie": "brtsams sgrung",
       "meaning": "小说",
       "pos": "",
       "pronunciation": "",
@@ -345,7 +345,7 @@
     {
       "id": "时间2_033",
       "tibetan": "ཏོག་ཙམ་ནས",
-      "wylie": "hrog tsam nas",
+      "wylie": "tog tsam nas",
       "meaning": "待会儿",
       "pos": "",
       "pronunciation": "di54zine",
@@ -745,7 +745,7 @@
     {
       "id": "143, 144, 145",
       "tibetan": "རྒྱག བརྒྱབ། བརྒྱག",
-      "wylie": "rgyug, brgyug, brgyug",
+      "wylie": "rgyag brgyab brgyag",
       "meaning": "动词化后缀",
       "pos": "",
       "pronunciation": "gyəb13 gyəb13 gyəb13",
@@ -954,8 +954,8 @@
     },
     {
       "id": "203",
-      "tibetan": "རྒུན་འབུམ།",
-      "wylie": "rgun 'bum",
+      "tibetan": "རྒུན་འབྲུམ།",
+      "wylie": "rgun 'brum",
       "meaning": "葡萄",
       "pos": "n.",
       "pronunciation": "",
@@ -1445,7 +1445,7 @@
     {
       "id": "270",
       "tibetan": "གཡས།",
-      "wylie": "g.yas",
+      "wylie": "gyas",
       "meaning": "右",
       "pos": "n.",
       "pronunciation": "",
@@ -1534,8 +1534,8 @@
     },
     {
       "id": "300, 301, 302, 303",
-      "tibetan": "འཇོག བཞག\nབཞག ཞོག",
-      "wylie": "jog bzhag bzhag 'jog",
+      "tibetan": "འཇོག བཞག བཞག ཞོག",
+      "wylie": "sog bzhag bzhag 'zhog",
       "meaning": "放置",
       "pos": "v.",
       "pronunciation": "",
