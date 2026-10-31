@@ -1631,6 +1631,566 @@
       "pronunciation": "",
       "source": "做客2",
       "example": ""
+    },
+    {
+      "id": "340",
+      "tibetan": "གནས་ཚུལ།",
+      "wylie": "gnas tshul",
+      "meaning": "情况",
+      "pos": "名词",
+      "pronunciation": "ne55cue55",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "343",
+      "tibetan": "སློབ་གསོ།",
+      "wylie": "slob gso",
+      "meaning": "教育",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "346",
+      "tibetan": "མཁྱེན།",
+      "wylie": "mkhyen",
+      "meaning": "会（敬语）",
+      "pos": "动词",
+      "pronunciation": "kyen55",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "349",
+      "tibetan": "བཀའ་འདྲི་ཞུ།",
+      "wylie": "bka' 'dri zhu",
+      "meaning": "询问",
+      "pos": "动词",
+      "pronunciation": "kam55zhi54",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "352",
+      "tibetan": "ཐ་མག་འཐེན།",
+      "wylie": "tha mag 'then",
+      "meaning": "抽烟",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "355",
+      "tibetan": "རྩོམ་ཡིག",
+      "wylie": "rtsom yig",
+      "meaning": "文章",
+      "pos": "名词",
+      "pronunciation": "zom55yi54",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "358",
+      "tibetan": "རྙོག་དྲ་ཚ་པོ།",
+      "wylie": "",
+      "meaning": "复杂的",
+      "pos": "形容词",
+      "pronunciation": "nyo55zha54ca55bo54",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "361",
+      "tibetan": "ཐད།",
+      "wylie": "thad",
+      "meaning": "方面",
+      "pos": "介词/后置词",
+      "pronunciation": "te54",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "364, 365, 366, 367",
+      "tibetan": "ཤོད། བཤད། བཤད། ཤོད།",
+      "wylie": "shod bshad bshad shod",
+      "meaning": "说",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "373, 374, 375, 376",
+      "tibetan": "སྦྱོང་། སྦྱངས། སྦྱང་། སྦྱངས།",
+      "wylie": "sbyong sbyangs sbyang sbyangs",
+      "meaning": "学",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "383",
+      "tibetan": "ཡིག་གཟུགས།",
+      "wylie": "yig gzugs",
+      "meaning": "字体；书法",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "386",
+      "tibetan": "དྲི་བ།",
+      "wylie": "dri ba",
+      "meaning": "问题，疑问",
+      "pos": "名词",
+      "pronunciation": "chi113wa13",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "388",
+      "tibetan": "ཧ་གོ།",
+      "wylie": "",
+      "meaning": "知道；了解",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "392",
+      "tibetan": "རོབ་ཙམ།",
+      "wylie": "rob tsam",
+      "meaning": "粗略，大致",
+      "pos": "副词",
+      "pronunciation": "rob13zi",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "396, 397, 398, 399",
+      "tibetan": "འཚོག འཚོགས། འཚོག འཚོགས།",
+      "wylie": "tshog 'tshogs 'tshog 'tshogs",
+      "meaning": "聚集；开会，上课",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "403, 404, 405 406",
+      "tibetan": "ཀློག བཀླགས། བཀླག ཀློགས།",
+      "wylie": "klog bklags bklag klogs",
+      "meaning": "读",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "412",
+      "tibetan": "སྐད་ཆ་ཤོད།",
+      "wylie": "skad cha shod",
+      "meaning": "说话聊天",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "415, 416, 417, 418",
+      "tibetan": "འདྲི། དྲིས། དྲི། དྲིས།",
+      "wylie": "dri dris dri dris",
+      "meaning": "问",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "431",
+      "tibetan": "ཉམས་མྱོང་།",
+      "wylie": "nyams myong",
+      "meaning": "经验",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "434",
+      "tibetan": "བསམ་བློ་གཏོང་།",
+      "wylie": "bsam blo gtong",
+      "meaning": "思考，想",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "438",
+      "tibetan": "བསམ་བློ",
+      "wylie": "bsam blo",
+      "meaning": "想法，思想",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "442",
+      "tibetan": "སྐད་རིགས།",
+      "wylie": "skad rigs",
+      "meaning": "语言",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "445",
+      "tibetan": "བློ་ཁོག",
+      "wylie": "",
+      "meaning": "胆量",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "448",
+      "tibetan": "བློ་ཁོག་ཆེན་པོ།",
+      "wylie": "",
+      "meaning": "大胆的",
+      "pos": "形容词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "451",
+      "tibetan": "སྒྲ་དག་པོ།",
+      "wylie": "sgra dag po",
+      "meaning": "发音标准的",
+      "pos": "形容词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "454",
+      "tibetan": "ལས་དོན།",
+      "wylie": "las don",
+      "meaning": "事务",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "456, 457, 458, 459",
+      "tibetan": "ཉན། མཉན། མཉན། ཉོན།",
+      "wylie": "nyan mnyan mnyan nyon",
+      "meaning": "听",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "465",
+      "tibetan": "འཛུལ།",
+      "wylie": "dzul",
+      "meaning": "进入",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言1",
+      "example": ""
+    },
+    {
+      "id": "468",
+      "tibetan": "ལས་རིགས།",
+      "wylie": "las rigs",
+      "meaning": "职业",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "471",
+      "tibetan": "ཤོད་སྲོལ།",
+      "wylie": "shod srol",
+      "meaning": "说法",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "474",
+      "tibetan": "སྤྱི་ལོ།",
+      "wylie": "spyi lo",
+      "meaning": "公历",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "477",
+      "tibetan": "བོད་ཟླ།",
+      "wylie": "bod zla",
+      "meaning": "藏历",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "480",
+      "tibetan": "རྒྱ་ཟླ།",
+      "wylie": "rgya zla",
+      "meaning": "汉历",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "483",
+      "tibetan": "དུས་རབས།",
+      "wylie": "dus rabs",
+      "meaning": "世纪；时代",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "486",
+      "tibetan": "ལོ་རབས།",
+      "wylie": "lo rabs",
+      "meaning": "年代",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "489",
+      "tibetan": "བཙན་པོ།",
+      "wylie": "btsan po",
+      "meaning": "赞普",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "492",
+      "tibetan": "འགོ་བཙུགས།",
+      "wylie": "go btsugs",
+      "meaning": "开始",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "495, 496, 497, 498",
+      "tibetan": "སྟོན། བསྟན། བསྟན། སྟོན།",
+      "wylie": "ston bstan bstan ston",
+      "meaning": "显露；指示；表明",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "505",
+      "tibetan": "འགོར།",
+      "wylie": "gor",
+      "meaning": "花费（时间）",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "508",
+      "tibetan": "དད།",
+      "wylie": "dad",
+      "meaning": "信仰",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "511",
+      "tibetan": "དྲང་པོ།",
+      "wylie": "drang po",
+      "meaning": "正直的；笔直的",
+      "pos": "形容词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "515",
+      "tibetan": "འགྲིམ་འགྲུལ།",
+      "wylie": "grim 'grul",
+      "meaning": "交通",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "517",
+      "tibetan": "གོ་སྐབས།",
+      "wylie": "go skabs",
+      "meaning": "机会",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "520",
+      "tibetan": "ཁ་ཐུག",
+      "wylie": "kha thug",
+      "meaning": "直接",
+      "pos": "副词/形容词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "523",
+      "tibetan": "ཡོ་བྱད།",
+      "wylie": "yo byad",
+      "meaning": "工具",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "526",
+      "tibetan": "ཤུགས་རྐྱེན་ཐེབས།",
+      "wylie": "shugs rkyen thebs",
+      "meaning": "影响",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "529",
+      "tibetan": "འབབ་ཚུགས།",
+      "wylie": "bab tshugs",
+      "meaning": "站点",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "532",
+      "tibetan": "བེད་སྤྱོད་གཏོང་།",
+      "wylie": "bed spyod gtong",
+      "meaning": "使用",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "535",
+      "tibetan": "རྒྱུག་ཤར་སྐྱོད།",
+      "wylie": "rgyug shar skyod",
+      "meaning": "跑步",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "538, 542, 543",
+      "tibetan": "བར།",
+      "wylie": "bar",
+      "meaning": "之间",
+      "pos": "介词/后置词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "545",
+      "tibetan": "ཆ་རྐྱེན།",
+      "wylie": "cha rkyen",
+      "meaning": "条件",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "548",
+      "tibetan": "སྐྱུག་མིར་ལང་།",
+      "wylie": "skyug mir lang",
+      "meaning": "犯恶心",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "551, 552, 553, 554",
+      "tibetan": "སྐྱུག བསྐྱུགས། བསྐྱུག སྐྱུགས།",
+      "wylie": "skyug bskyugs bskyug skyugs",
+      "meaning": "呕吐",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "556",
+      "tibetan": "ཐེངས།",
+      "wylie": "thengs",
+      "meaning": "次数",
+      "pos": "量词/名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "559",
+      "tibetan": "དགའ་ཞེན།",
+      "wylie": "dga' zhen",
+      "meaning": "兴趣",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
+    },
+    {
+      "id": "561",
+      "tibetan": "རྐང་ཐང་ལ་འགྲོ",
+      "wylie": "rkang thang la 'gro",
+      "meaning": "步行",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "学习语言2",
+      "example": ""
     }
   ]
 }
