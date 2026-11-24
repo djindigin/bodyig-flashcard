@@ -2191,6 +2191,286 @@
       "pronunciation": "",
       "source": "学习语言2",
       "example": ""
+    },
+        {
+      "id": "570, 571, 572, 573",
+      "tibetan": "འཛེམ། འཛེམས། འཛེམ། འཛེམས།",
+      "wylie": "dzem 'dzems 'dzem 'dzems",
+      "meaning": "忌",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "575",
+      "tibetan": "འཛེམ་བྱ།",
+      "wylie": "dzem bya",
+      "meaning": "禁忌",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "578",
+      "tibetan": "ལྷག་པར་དུ།",
+      "wylie": "lhag par du",
+      "meaning": "尤其",
+      "pos": "副词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "581",
+      "tibetan": "རྒན་རབས།",
+      "wylie": "rgan rabs",
+      "meaning": "老一辈",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "584",
+      "tibetan": "གུས་ཞབས་བྱེད།",
+      "wylie": "gus zhabs byed",
+      "meaning": "尊敬",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "588",
+      "tibetan": "གུས་ལུགས།",
+      "wylie": "gus lugs",
+      "meaning": "礼节",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "591",
+      "tibetan": "སྐྱོ་པོ།",
+      "wylie": "skyo po",
+      "meaning": "不佳的；贫寒的",
+      "pos": "形容词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "595",
+      "tibetan": "ཕྱགས་མ།",
+      "wylie": "phyags ma",
+      "meaning": "扫帚",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "598",
+      "tibetan": "མི་གཅིག་པོར།",
+      "wylie": "mi gcig por",
+      "meaning": "独自地",
+      "pos": "副词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "601",
+      "tibetan": "སྐད་ཅོར་རྒྱུག",
+      "wylie": "skad cor rgyug",
+      "meaning": "吵闹",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "604",
+      "tibetan": "གཞོན་རབས།",
+      "wylie": "gzhon rabs",
+      "meaning": "年轻一代",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "607",
+      "tibetan": "གད་རྒྱུག",
+      "wylie": "gad rgyug",
+      "meaning": "打扫",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "610, 611, 612, 613",
+      "tibetan": "འགྱོག བཀྱགས། བཀྱག ཁྱོག",
+      "wylie": "gyog bkyags bkyag khyog",
+      "meaning": "抬，举",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "616",
+      "tibetan": "ཞབས་ཞུ་བྱེད།",
+      "wylie": "zhabs zhu byed",
+      "meaning": "服务",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "619, 620, 621, 622",
+      "tibetan": "ལབ། ལབ། ལབ། ལོབ།",
+      "wylie": "lab lab lab lob",
+      "meaning": "告诉",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "624",
+      "tibetan": "བཀྲ་མ་ཤིས་པའི།",
+      "wylie": "bkra ma shis pa'i",
+      "meaning": "不吉利的",
+      "pos": "形容词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "627",
+      "tibetan": "ངེས་པར་དུ།",
+      "wylie": "nges par du",
+      "meaning": "必须，务必",
+      "pos": "副词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "631",
+      "tibetan": "དོ་སྣང་བྱེད།",
+      "wylie": "do snang byed",
+      "meaning": "注意",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "634",
+      "tibetan": "གཅིག་ལབ་རྒྱུག",
+      "wylie": "gcig lab rgyug",
+      "meaning": "自言自语",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "637, 638, 639, 640",
+      "tibetan": "གསུང་། གསུངས། གསུང་། གསུངས།",
+      "wylie": "gsung gsungs gsung gsungs",
+      "meaning": "说；告诉",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "642, 645",
+      "tibetan": "མཐོང་ཆེན་/ཆུང་བྱེད།",
+      "wylie": "mthong chen / chung byed",
+      "meaning": "重 / 轻视",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "648",
+      "tibetan": "ཆང་འགྱོག",
+      "wylie": "chang 'gyog",
+      "meaning": "敬酒",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "651",
+      "tibetan": "ལག་སྤྲད་བྱེད།",
+      "wylie": "lag sprad byed",
+      "meaning": "亲手给",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "654, 655, 656, 657",
+      "tibetan": "འཇུག བཅུག གཞུག ཆུག",
+      "wylie": "jug bcug gzhug chug",
+      "meaning": "塞入，纳入",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "663",
+      "tibetan": "རྒྱལ་ཁ་ཐོབ།",
+      "wylie": "rgyal kha thob",
+      "meaning": "获得胜利",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "667",
+      "tibetan": "ཁ་བུབ་སློག",
+      "wylie": "kha bub slog",
+      "meaning": "倒扣",
+      "pos": "动词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "670",
+      "tibetan": "རྨང་གཞི།",
+      "wylie": "rmang gzhi",
+      "meaning": "根基，基础",
+      "pos": "名词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
+    },
+    {
+      "id": "673",
+      "tibetan": "གཞི་ནས།",
+      "wylie": "gzhi nas",
+      "meaning": "终于",
+      "pos": "副词",
+      "pronunciation": "",
+      "source": "禁忌1",
+      "example": ""
     }
   ]
 }
